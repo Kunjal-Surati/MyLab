@@ -1,11 +1,11 @@
-pipeline {
+pipeline{
     //Directives
     agent any
     tools {
         maven 'maven'
     }
     
-    stage {
+    stages {
             //1. build stage
             stage ('Build') {
                 steps {
