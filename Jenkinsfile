@@ -26,7 +26,7 @@ pipeline{
         // stage 3: upload to nexus
         stage ('publish to Nexus'){
             steps{
-                nexusArtifactUploader artifacts: [[artifactId: 'KunjalDevOpsLab', classifier: '', file: 'target/KunjalDevOpsLab-0.0.3-SNAPSHOT', type: 'war']], credentialsId: 'a68daa0a-639e-4ff3-8ce9-4936ed9d8a58', groupId: 'com.kunjaldevopslab', nexusUrl: '54.92.159.150:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'MyLab-SNAPSHOTS', version: '0.0.3-SNAPSHOT'
+                nexusArtifactUploader artifacts: [[artifactId: 'KunjalDevOpsLab', classifier: '', file: 'target/KunjalDevOpsLab-0.0.3-SNAPSHOT.war', type: 'war']], credentialsId: 'a68daa0a-639e-4ff3-8ce9-4936ed9d8a58', groupId: 'com.kunjaldevopslab', nexusUrl: '54.92.159.150:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'MyLab-SNAPSHOTS', version: '0.0.3-SNAPSHOT'
             }
         }
 
