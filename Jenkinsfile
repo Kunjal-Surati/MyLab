@@ -2,7 +2,7 @@ pipeline{
     //Directives
     agent any
     tools {
-        maven 'maven'
+        maven 'Maven' //as givin in jenkins console
     }
 
     stages {
