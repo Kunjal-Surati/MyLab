@@ -4,7 +4,7 @@
   <groupId>com.kunjaldevopslab</groupId>
   <artifactId>KunjalDevOpsLab</artifactId>
   <packaging>war</packaging>
-  <version>0.0.3-SNAPSHOT</version>
+  <version>0.0.4</version>
   <name>KunjalDevOpsLab</name>
   <url>http://maven.apache.org</url>
   <dependencies>
