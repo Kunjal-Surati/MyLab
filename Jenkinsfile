@@ -41,7 +41,7 @@ pipeline{
                 nexusArtifactUploader artifacts:
                 [[artifactId: "${ArtifactId}",
                 classifier: '', 
-                file: 'target/KunjalDevOpsLab-0.0.4.war', 
+                file: "target/${ArtifactId}-${Version}.war", 
                 type: 'war']], 
                 credentialsId: 'a68daa0a-639e-4ff3-8ce9-4936ed9d8a58', 
                 groupId: "${GroupId}", 
@@ -67,7 +67,23 @@ pipeline{
         // Stage5 : Publish the source code to Sonarqube
         stage ('Deployment'){
             steps {
-                echo 'deployment done'
+                echo 'Deploying'
+                sshPublisher(publishers:
+                [sshPublisherDesc(
+                    configName: 'Ansible Controller', 
+                    transfers: [
+                        sshTransfer(
+                            cleanRemote: false, 
+                            execCommand: 'ansible-playbook /opt/playbooks/DownloadnDeployArtifact.yaml -i /opt/playbooks/hosts', 
+                            execTimeout: 120000, 
+                            
+                        )
+                    ],
+                    usePromotionTimestamp: false, 
+                    useWorkspaceInPromotion: false, 
+                    verbose: false
+                )]
+                )
                 
                 }
 
